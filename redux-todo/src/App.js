@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addFriend, changeInput, markFriendMarried } from './store/actionCreators'
+import { addFriend, changeInput, canSkate } from './store/actionCreators';
 // STEP-9 BRING IN THE ACTION CREATORS
 import './App.css'
 
@@ -12,7 +12,7 @@ function App({
   // B- callbacks to change state (action creators)
   changeInput,
   addFriend,
-  markFriendMarried,
+  canSkate,
   // C- props actually injected by the parent component
 }) {
   // Event listeners (we still need 'em)
@@ -34,15 +34,15 @@ function App({
       lname: formValues.lname,
     });
   }
-  const onMarkFriendMarried = id => event => {
+  const onCanSkate = id => event => {
     // call an action creator
-    markFriendMarried(id)
+    canSkate(id)
   }
 
   return (
     <div className="App">
       {/* here we can add a new friend */}
-      <h4>Add a new friend (married defaults to false)</h4>
+      <h4>Add a new friend</h4>
       <form className='form' onSubmit={onSubmit}>
         <label>first name
         <input
@@ -70,8 +70,8 @@ function App({
           <div
             key={fr.id}
           >
-            {fr.fname} {fr.lname} is{fr.married ? ' happily ' : ' NOT '}married
-            <button onClick={onMarkFriendMarried(fr.id)}>Mark Married</button>
+            {fr.fname} {fr.lname} is{fr.skate ? ' happily ' : ' NOT '}skate
+            <button onClick={onCanSkate(fr.id)}>Mark Skate</button>
           </div>
         ))
       }
@@ -93,5 +93,5 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   // object with action creators imported at the top,
-  { addFriend, changeInput, markFriendMarried },
+  { addFriend, changeInput, canSkate },
 )(App)

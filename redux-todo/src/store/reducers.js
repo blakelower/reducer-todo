@@ -36,13 +36,13 @@ export function friendsReducer(state = initialStateFriends, action) {
   switch (action.type) {
     case types.ADD_FRIEND:
       return state.concat(action.payload)
-    case types.MARK_MARRIED:
+    case types.CAN_SKATE:
       return state.map(friend => {
         debugger
         if (friend.id === action.payload) {
           return {
             ...friend,
-            married: !friend.married
+            skate: !friend.skate
           };
         }
         return friend;

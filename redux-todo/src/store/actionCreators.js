@@ -1,4 +1,4 @@
-import * as types from '../actionTypes'
+import * as types from './actionTypes'
 import uuid from 'uuid'
 
 // STEP-7 MAKE ACTION CREATORS THE COMPONENTS CAN USE DIRECTLY
@@ -19,14 +19,14 @@ export function addFriend({ fname, lname }) {
       id: uuid(),
       fname,
       lname,
-      married: false,
+      skate: false,
     }
   }
 }
 
-export function markFriendMarried(id) {
+export function canSkate(id) {
   return {
-    type: types.MARK_MARRIED,
+    type: types.CAN_SKATE,
     payload: id,
   }
 }
