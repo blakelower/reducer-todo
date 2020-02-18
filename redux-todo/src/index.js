@@ -32,6 +32,14 @@ const combinedReducer = combineReducers({
     friends: friendsReducer,
   })
   
+  // STEP-5 USE createStore FROM redux TO MAKE A STATE STORE
+const store = createStore(
+    // arg 1: the monster reducer
+    combinedReducer,
+    // null unless redux devtools is installed
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+  
 ReactDOM.render(
   <Provider>
     <App />
