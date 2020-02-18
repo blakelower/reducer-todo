@@ -24,8 +24,14 @@ const combinedReducer = combineReducers({
     friends: friendsReducer,
   })
 
-
-
+//   / STEP-4 USE combineReducers FROM redux TO MAKE A SINGLE REDUCER
+  //    - takes an object
+  //    - give the keys nice names, because those are the names of the slices of state
+  const combinedReducer = combineReducers({
+    formValues: formReducer,
+    friends: friendsReducer,
+  })
+  
 ReactDOM.render(
   <Provider>
     <App />
